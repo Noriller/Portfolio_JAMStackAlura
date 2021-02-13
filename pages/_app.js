@@ -1,26 +1,30 @@
-import { createGlobalStyle, ThemeProvider } from 'styled-components'
-
-const GlobalStyle = createGlobalStyle`
-  body {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-`
-
-const theme = {
-  colors: {
-    primary: '#0070f3',
-  },
-}
+/* eslint-disable react/prop-types */
+/* eslint-disable react/jsx-props-no-spreading */
+import React, { useEffect, useState } from 'react';
+import { ThemeProvider } from 'styled-components';
+import {
+  GlobalStyle, Theme, useDarkMode, Toggle,
+} from '../src/theme';
 
 export default function App({ Component, pageProps }) {
-  return (
-    <>
-      <GlobalStyle />
-      <ThemeProvider theme={theme}>
-        <Component {...pageProps} />
-      </ThemeProvider>
-    </>
-  )
+  const { theme, toggleTheme, componentMounted } = useDarkMode();
+  const [userTheme, setUserTheme] = useState();
+
+  useEffect(() => {
+    setUserTheme(Theme(theme));
+  }, [theme]);
+
+  if (componentMounted) {
+    return (
+      <>
+        <GlobalStyle />
+        <ThemeProvider theme={userTheme}>
+          <Toggle theme={theme} toggleTheme={toggleTheme} />
+          <Component {...pageProps} />
+        </ThemeProvider>
+      </>
+    );
+  }
+
+  return null;
 }
