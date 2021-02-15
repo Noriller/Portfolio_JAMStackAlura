@@ -1,7 +1,3 @@
-import { GlobalStyle } from './GlobalStyle';
-import Theme from './Theme';
-import { useDarkMode, Toggle } from './ToggleTheme';
+import ThemeWrapper from './ThemeWrapper';
 
-export {
-  GlobalStyle, Theme, useDarkMode, Toggle,
-};
+export default ThemeWrapper();

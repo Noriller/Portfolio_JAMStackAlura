@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import React, { useEffect, useState } from 'react';
 import { func, string } from 'prop-types';
 
-export const Toggle = ({ theme, toggleTheme }) => {
+export const ToggleTheme = ({ theme, toggleTheme }) => {
   const isLight = theme === 'light';
 
   return (
@@ -13,25 +13,33 @@ export const Toggle = ({ theme, toggleTheme }) => {
   );
 };
 
-Toggle.propTypes = {
+ToggleTheme.propTypes = {
   theme: string.isRequired,
   toggleTheme: func.isRequired,
 };
 
 const ToggleContainer = styled.button`
-  position: relative;
+  position: absolute;
+  right: 10px;
+  top: 10px;
   display: flex;
   justify-content: space-between;
-  background: ${({ theme }) => theme.toggle.gradient};
+  background: ${({ theme }) => theme.toggleButton.gradient};
   width: 8rem;
   height: 3.5rem;
   margin: 0 auto;
   border-radius: 30px;
-  border: 2px solid ${({ theme }) => theme.toggle.toggleBorder};
+  border: 2px solid ${({ theme }) => theme.toggleButton.toggleBorder};
   font-size: 0.5rem;
   padding: 0.5rem;
   overflow: hidden;
   cursor: pointer;
+
+  @media (max-width: 500px) {
+    position: unset;
+    float: right;
+    transform: scale(0.7)
+  }
 
   img {
     max-width: 2.5rem;
