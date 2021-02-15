@@ -2,6 +2,16 @@ const lightTheme = {
   colors: {
     primary: '#0070f3',
   },
+  headings: {
+    big: 150,
+    medium: 100,
+    small: 50,
+  },
+  paragraphs: {
+    big: 150,
+    medium: 100,
+    small: 50,
+  },
   bg: 'white',
   textContrast: 'red',
   toggleButton: {
@@ -13,6 +23,16 @@ const lightTheme = {
 const darkTheme = {
   colors: {
     primary: 'red',
+  },
+  headings: {
+    big: 150,
+    medium: 100,
+    small: 50,
+  },
+  paragraphs: {
+    big: 150,
+    medium: 100,
+    small: 50,
   },
   bg: '#333333',
   textContrast: 'white',

@@ -65,4 +65,3 @@ BreakpointContextProvider.propTypes = {
 export function useBreakpoint() {
   return useContext(BreakpointContext);
 }
-

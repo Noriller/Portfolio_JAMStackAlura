@@ -6,7 +6,7 @@ import Head from 'next/head';
 import GlobalStyle from './ThemeComponents/GlobalStyle';
 import Theme from './ThemeComponents/Theme';
 import { ToggleTheme, useDarkMode } from './ThemeComponents/ToggleTheme';
-import BreakpointContextProvider from './ThemeComponents/BreakPointContext/BreakPointContext';
+import BreakpointContextProvider, { getBreakpointValue } from './ThemeComponents/BreakPointContext';
 
 export default function ThemeWrapper({ children }) {
   const { theme, toggleTheme, componentMounted } = useDarkMode();
@@ -18,17 +18,17 @@ export default function ThemeWrapper({ children }) {
 
   if (componentMounted) {
     return (
-      <ThemeProvider theme={userTheme}>
-        <Head>
-          <link rel="preconnect" href="https://fonts.gstatic.com" />
-          <link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Fira+Sans:ital@0;1&display=swap" rel="stylesheet" />
-        </Head>
-        <GlobalStyle />
-        <ToggleTheme theme={theme} toggleTheme={toggleTheme} />
-        <BreakpointContextProvider>
+      <BreakpointContextProvider>
+        <ThemeProvider theme={{ ...userTheme, getBreakpointValue }}>
+          <Head>
+            <link rel="preconnect" href="https://fonts.gstatic.com" />
+            <link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Fira+Sans:ital@0;1&display=swap" rel="stylesheet" />
+          </Head>
+          <GlobalStyle />
+          <ToggleTheme theme={theme} toggleTheme={toggleTheme} />
           {children}
-        </BreakpointContextProvider>
-      </ThemeProvider>
+        </ThemeProvider>
+      </BreakpointContextProvider>
     );
   }
 

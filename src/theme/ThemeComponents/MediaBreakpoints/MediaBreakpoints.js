@@ -1,9 +1,6 @@
 import { css } from 'styled-components';
 import breakpoints from './breakpoints';
-
-function padArray(arr, len, fill) {
-  return arr.concat(Array(len).fill(fill)).slice(0, len);
-}
+import { padArray } from '../../../utils';
 
 function getMaxWidth(min, arr) {
   if (arr.length === 0) return null;
