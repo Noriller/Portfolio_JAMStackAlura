@@ -1,6 +1,7 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 import inserMediaQuery from '../src/Theme/ThemeComponents/MediaBreakpoints';
+import { useBreakpoint } from '../src/Theme/ThemeComponents/BreakPointContext';
 
 const xs = css`
   color: green
@@ -13,7 +14,7 @@ const xl = css`
 `;
 
 const Title = styled.h1`
-  font-size: 50px;
+  font-size: ${({ breakpoint }) => (50 * (breakpoint + 1))}px;
   color: ${({ theme }) => theme.colors.primary};
   ${inserMediaQuery(xs, md, xl)}
 `;
@@ -24,9 +25,11 @@ const NewDiv = styled.div`
 `;
 
 export default function Home() {
+  const breakpoint = useBreakpoint();
   return (
     <div>
-      <Title>My page</Title>
+      { `${breakpoint} point`}
+      <Title breakpoint={breakpoint}>My page</Title>
       <NewDiv>
         lorem ipsum dolor sit amet,
         consectetur adipiscing elit,

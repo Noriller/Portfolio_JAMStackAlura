@@ -6,6 +6,7 @@ import Head from 'next/head';
 import GlobalStyle from './ThemeComponents/GlobalStyle';
 import Theme from './ThemeComponents/Theme';
 import { ToggleTheme, useDarkMode } from './ThemeComponents/ToggleTheme';
+import BreakpointContextProvider from './ThemeComponents/BreakPointContext/BreakPointContext';
 
 export default function ThemeWrapper({ children }) {
   const { theme, toggleTheme, componentMounted } = useDarkMode();
@@ -24,7 +25,9 @@ export default function ThemeWrapper({ children }) {
         </Head>
         <GlobalStyle />
         <ToggleTheme theme={theme} toggleTheme={toggleTheme} />
-        {children}
+        <BreakpointContextProvider>
+          {children}
+        </BreakpointContextProvider>
       </ThemeProvider>
     );
   }
