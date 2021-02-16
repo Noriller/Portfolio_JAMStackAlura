@@ -1,5 +1,6 @@
-// eslint-disable-next-line import/prefer-default-export
-export const breakpoints = [0, 600, 1200, 2000];
+const breakpoints = [0, 600, 1200, 2000];
+
+export default breakpoints;
 
 // /* Extra small devices (phones, 600px and down) */
 // @media only screen and (max-width: 600px) {...}

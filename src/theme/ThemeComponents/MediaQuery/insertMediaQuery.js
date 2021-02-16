@@ -1,5 +1,5 @@
 import { css } from 'styled-components';
-import { breakpoints } from './CustomBreakpoints';
+import breakpoints from './CustomBreakpoints';
 import { padArray } from '../../../utils';
 
 function getMaxWidth(min, arr) {

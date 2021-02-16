@@ -1,5 +1,5 @@
-/* eslint-disable react/prop-types */
 /* eslint-disable react/jsx-props-no-spreading */
+/* eslint-disable react/prop-types */
 import Head from 'next/head';
 import React from 'react';
 import ThemeWrapper from '../src/Theme';

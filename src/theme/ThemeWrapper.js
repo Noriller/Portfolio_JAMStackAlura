@@ -1,8 +1,7 @@
-/* eslint-disable react/prop-types */
-/* eslint-disable react/jsx-props-no-spreading */
 import React, { useEffect, useState } from 'react';
 import { ThemeProvider } from 'styled-components';
 import Head from 'next/head';
+import { node } from 'prop-types';
 import GlobalStyle from './ThemeComponents/GlobalStyle';
 import CustomTheme from './ThemeComponents/CustomTheme';
 import { ToggleTheme, useDarkMode } from './ThemeComponents/ToggleTheme';
@@ -34,3 +33,7 @@ export default function ThemeWrapper({ children }) {
 
   return null;
 }
+
+ThemeWrapper.propTypes = {
+  children: node.isRequired,
+};

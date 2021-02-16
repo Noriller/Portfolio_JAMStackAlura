@@ -14,5 +14,5 @@ Cabecalho.propTypes = {
 };
 
 // ${({ theme }) => theme.getBreakpointValue(theme.textSize.display, theme.textSize.title1, '')}
-// ${insertMediaQuery(xs, md, xl)}
+// ${inserMediaQuery(xs, md, xl)}
 // import styled, { css } from 'styled-components';

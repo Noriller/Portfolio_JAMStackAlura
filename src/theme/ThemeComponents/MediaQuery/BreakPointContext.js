@@ -1,6 +1,8 @@
-import React, { createContext, useContext, useEffect, useState } from 'react';
+import React, {
+  createContext, useContext, useEffect, useState,
+} from 'react';
 import { node } from 'prop-types';
-import { breakpoints } from './CustomBreakpoints';
+import breakpoints from './CustomBreakpoints';
 
 const BreakpointContext = createContext({ breakpoint: 9999, width: 1200, height: 900 });
 

@@ -1,8 +1,7 @@
-/* eslint-disable import/prefer-default-export */
 import { createGlobalStyle } from 'styled-components';
 import reset from './reset';
 
-export const GlobalStyle = createGlobalStyle`
+const GlobalStyle = createGlobalStyle`
   ${reset}
 
   * {
@@ -19,3 +18,5 @@ export const GlobalStyle = createGlobalStyle`
     color: ${({ theme }) => theme.textContrast};
   }
 `;
+
+export default GlobalStyle;

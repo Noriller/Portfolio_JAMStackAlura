@@ -5,8 +5,7 @@ import styled from 'styled-components';
 const CapaContainer = styled.div`
   width: 100vw;
   height: 100vh;
-  background-color: red;
-  border: 10px solid yellow;
+  border: 10px solid;
   inline-size: auto;
   text-align: center;
   display: flex;
