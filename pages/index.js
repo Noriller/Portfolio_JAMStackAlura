@@ -1,40 +1,66 @@
 import React from 'react';
-import styled, { css } from 'styled-components';
-import inserMediaQuery from '../src/Theme/ThemeComponents/MediaBreakpoints';
-
-const xs = css`
-  color: green
-`;
-const md = css`
-  color: yellow
-`;
-const xl = css`
-  color: pink
-`;
-
-const Title = styled.h1`
-  font-size: ${({ theme }) => theme.getBreakpointValue(theme.headings.medium, theme.headings.small, '')}px;
-  color: ${({ theme }) => theme.colors.primary};
-  ${inserMediaQuery(xs, md, xl)}
-`;
-
-const newLocal = inserMediaQuery(css`color: red`, '', null);
-const NewDiv = styled.div`
-  font-size: ${({ theme }) => theme.getBreakpointValue(theme.paragraphs.small, theme.paragraphs.medium, null)}px;
-  ${newLocal}
-`;
+import Cabecalho from '../src/components/Cabecalho';
+import Capa from '../src/components/Capa';
+import Card from '../src/components/Card';
+import CardDestaque from '../src/components/CardDestaque';
+import CardText from '../src/components/CardText';
+import CardTitle from '../src/components/CardTitle';
+import CardImage from '../src/components/CardImage';
+import Footer from '../src/components/Footer';
+import FooterIcon from '../src/components/FooterIcon';
+import Logo from '../src/components/Logo';
+import NavBar from '../src/components/NavBar';
+import SectionTitle from '../src/components/SectionTitle';
+import WrapperProjetos from '../src/components/WrapperProjetos';
 
 export default function Home() {
   return (
-    <div>
-      <Title>My page</Title>
-      <NewDiv>
-        lorem ipsum dolor sit amet,
-        consectetur adipiscing elit,
-        sed do eiusmod tempor incididunt
-        ut labore et dolore magna aliqua.
-        Ut enim adipiscing.
-      </NewDiv>
-    </div>
+    <>
+      <Capa>
+        Capa!
+      </Capa>
+      <Cabecalho>
+        Cabecalho
+        <Logo>
+          Logo
+        </Logo>
+        <NavBar>
+          NavBar
+        </NavBar>
+      </Cabecalho>
+      <WrapperProjetos>
+        WrapperProjetos
+        <SectionTitle>
+          SectionTitle
+        </SectionTitle>
+        <Card>
+          Card
+          <CardImage>
+            CardImage
+          </CardImage>
+          <CardTitle>
+            CardTitle
+          </CardTitle>
+        </Card>
+        <CardDestaque>
+          CardDestaque
+          <CardImage>
+            CardImage
+          </CardImage>
+          <CardTitle>
+            CardTitle
+          </CardTitle>
+          <CardText>
+            CardText
+          </CardText>
+        </CardDestaque>
+      </WrapperProjetos>
+      <Footer>
+        Footer
+        <FooterIcon>
+          FooterIcon
+        </FooterIcon>
+      </Footer>
+    </>
   );
 }

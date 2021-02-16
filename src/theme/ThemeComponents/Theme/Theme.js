@@ -1,19 +1,26 @@
+const baseTheme = {
+  textSize: {
+    display: '3rem',
+    header: '2.5rem',
+    title1: '2rem',
+    title2: '1.5rem',
+    body: '1rem',
+    caption: '0.75rem',
+  },
+  spacings: {
+    touch: '32px',
+    minimum: '8px',
+    other: '18px',
+  },
+  lineSpacing: '1.5rem',
+};
+
 const lightTheme = {
   colors: {
     primary: '#0070f3',
   },
-  headings: {
-    big: 150,
-    medium: 100,
-    small: 50,
-  },
-  paragraphs: {
-    big: 150,
-    medium: 100,
-    small: 50,
-  },
   bg: 'white',
-  textContrast: 'red',
+  textContrast: '#222222',
   toggleButton: {
     toggleBorder: '#fff',
     gradient: 'linear-gradient(#39598A, #79D7ED)',
@@ -24,16 +31,6 @@ const darkTheme = {
   colors: {
     primary: 'red',
   },
-  headings: {
-    big: 150,
-    medium: 100,
-    small: 50,
-  },
-  paragraphs: {
-    big: 150,
-    medium: 100,
-    small: 50,
-  },
   bg: '#333333',
   textContrast: 'white',
   toggleButton: {
@@ -43,5 +40,7 @@ const darkTheme = {
 };
 
 export default function Theme(theme) {
-  return theme === 'light' ? lightTheme : darkTheme;
+  const chosenTheme = theme === 'light' ? lightTheme : darkTheme;
+
+  return { ...baseTheme, ...chosenTheme };
 }

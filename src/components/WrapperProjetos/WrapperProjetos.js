@@ -1,7 +1,7 @@
 import { node } from 'prop-types';
 import React from 'react';
 
-export default function Capa({ children }) {
+export default function WrapperProjetos({ children }) {
   return (
     <div>
       {children}
@@ -9,7 +9,7 @@ export default function Capa({ children }) {
   );
 }
 
-Capa.propTypes = {
+WrapperProjetos.propTypes = {
   children: node.isRequired,
 };
 

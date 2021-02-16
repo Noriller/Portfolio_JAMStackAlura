@@ -1,4 +1,4 @@
-const breakpoints = [0, 768, 1200];
+const breakpoints = [0, 600, 1200, 2000];
 
 export default breakpoints;
 

@@ -1,7 +1,7 @@
 import { node } from 'prop-types';
 import React from 'react';
 
-export default function Capa({ children }) {
+export default function CardText({ children }) {
   return (
     <div>
       {children}
@@ -9,7 +9,7 @@ export default function Capa({ children }) {
   );
 }
 
-Capa.propTypes = {
+CardText.propTypes = {
   children: node.isRequired,
 };
 

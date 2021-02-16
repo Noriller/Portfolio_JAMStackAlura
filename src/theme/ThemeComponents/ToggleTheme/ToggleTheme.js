@@ -2,6 +2,9 @@ import styled from 'styled-components';
 import React, { useEffect, useState } from 'react';
 import { func, string } from 'prop-types';
 
+/**
+ * @borrows @tutorial https://css-tricks.com/a-dark-mode-toggle-with-react-and-themeprovider/
+ */
 export const ToggleTheme = ({ theme, toggleTheme }) => {
   const isLight = theme === 'light';
 
@@ -56,6 +59,9 @@ const ToggleContainer = styled.button`
   }
 `;
 
+/**
+ * @borrows @tutorial https://css-tricks.com/a-dark-mode-toggle-with-react-and-themeprovider/
+ */
 export const useDarkMode = () => {
   const [theme, setTheme] = useState('light');
   const [componentMounted, setComponentMounted] = useState(false);
