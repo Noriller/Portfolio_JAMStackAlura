@@ -1,4 +1,4 @@
-import { node } from 'prop-types';
+import { string } from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
 
@@ -8,18 +8,40 @@ const CapaContainer = styled.div`
   background-color: red;
   border: 10px solid yellow;
   inline-size: auto;
-  text-align: ${({ theme }) => theme.getBreakpointValue('center', 'start', 'right', 'center')}
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 `;
-export default function Capa({ children }) {
+
+const CapaTitle = styled.div`
+  font-size: ${({ theme }) => theme.getBreakpointValue('3rem', '4rem', '6rem', '8rem')}
+`;
+const CapaSubtitle = styled.div`
+  font-size: ${({ theme }) => theme.getBreakpointValue('1rem', '1.4rem', '2rem', '2.8rem')}
+`;
+export default function Capa({ title, subtitle }) {
   return (
     <CapaContainer>
-      {children}
+      <CapaTitle>
+        {title}
+      </CapaTitle>
+      {subtitle ? (
+        <CapaSubtitle>
+          {subtitle}
+        </CapaSubtitle>
+      ) : null}
     </CapaContainer>
   );
 }
 
 Capa.propTypes = {
-  children: node.isRequired,
+  title: string.isRequired,
+  subtitle: string,
+};
+
+Capa.defaultProps = {
+  subtitle: null,
 };
 
 // ${({ theme }) => theme.getBreakpointValue(theme.textSize.display, theme.textSize.title1, '')}

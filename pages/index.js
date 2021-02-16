@@ -16,9 +16,7 @@ import WrapperProjetos from '../src/components/WrapperProjetos';
 export default function Home() {
   return (
     <>
-      <Capa>
-        Capa!
-      </Capa>
+      <Capa title="Bruno Noriller" subtitle="Portfolio" />
       <Cabecalho>
         Cabecalho
         <Logo>
