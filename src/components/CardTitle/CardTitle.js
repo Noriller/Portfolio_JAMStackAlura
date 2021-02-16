@@ -1,6 +1,6 @@
 import { node } from 'prop-types';
 import React from 'react';
-
+import styled from 'styled-components';
 export default function CardTitle({ children }) {
   return (
     <div>

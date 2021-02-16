@@ -1,11 +1,17 @@
 import { node } from 'prop-types';
 import React from 'react';
+import styled from 'styled-components';
 
+const WrapperProjetosContainer = styled.div`
+  width: 100%;
+  border: 1px solid;
+  background-color: red;
+`;
 export default function WrapperProjetos({ children }) {
   return (
-    <div>
+    <WrapperProjetosContainer>
       {children}
-    </div>
+    </WrapperProjetosContainer>
   );
 }
 

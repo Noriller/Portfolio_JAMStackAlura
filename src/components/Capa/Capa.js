@@ -14,10 +14,10 @@ const CapaContainer = styled.div`
 `;
 
 const CapaTitle = styled.div`
-  font-size: ${({ theme }) => theme.getBreakpointValue('3rem', '4rem', '6rem', '8rem')}
+  font-size: ${({ theme }) => theme.getBreakpointValue(theme.baseSizes.big.xs, theme.baseSizes.big.md, theme.baseSizes.big.lg, theme.baseSizes.big.xl)}
 `;
 const CapaSubtitle = styled.div`
-  font-size: ${({ theme }) => theme.getBreakpointValue('1rem', '1.4rem', '2rem', '2.8rem')}
+  font-size: ${({ theme }) => theme.getBreakpointValue(theme.baseSizes.small.xs, theme.baseSizes.small.md, theme.baseSizes.small.lg, theme.baseSizes.small.xl)}
 `;
 export default function Capa({ title, subtitle }) {
   return (

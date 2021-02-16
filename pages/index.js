@@ -18,16 +18,10 @@ export default function Home() {
     <>
       <Capa title="Bruno Noriller" subtitle="Portfolio" />
       <Cabecalho>
-        Cabecalho
-        <Logo>
-          Logo
-        </Logo>
-        <NavBar>
-          NavBar
-        </NavBar>
+        <Logo />
+        <NavBar items={['About', 'Contact']} />
       </Cabecalho>
       <WrapperProjetos>
-        WrapperProjetos
         <SectionTitle>
           SectionTitle
         </SectionTitle>

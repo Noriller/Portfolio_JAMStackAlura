@@ -1,11 +1,29 @@
+/* eslint-disable max-len */
+/*
+${({ theme }) => theme.getBreakpointValue(theme.baseSizes.big.xs, theme.baseSizes.big.md, theme.baseSizes.big.lg, theme.baseSizes.big.xl)}
+${({ theme }) => theme.getBreakpointValue(theme.baseSizes.small.xs, theme.baseSizes.small.md, theme.baseSizes.small.lg, theme.baseSizes.small.xl)}
+${({ theme }) => theme.getBreakpointValue(theme.baseSizes.medium.xs, theme.baseSizes.medium.md, theme.baseSizes.medium.lg, theme.baseSizes.medium.xl)}
+*/
 const baseTheme = {
-  textSize: {
-    display: '3rem',
-    header: '2.5rem',
-    title1: '2rem',
-    title2: '1.5rem',
-    body: '1rem',
-    caption: '0.75rem',
+  baseSizes: {
+    big: {
+      xs: '3rem',
+      md: '4.5rem',
+      lg: '6rem',
+      xl: '9rem',
+    },
+    medium: {
+      xs: '2rem',
+      md: '3rem',
+      lg: '4rem',
+      xl: '6rem',
+    },
+    small: {
+      xs: '1rem',
+      md: '1.5rem',
+      lg: '2rem',
+      xl: '3rem',
+    },
   },
   spacings: {
     touch: '32px',

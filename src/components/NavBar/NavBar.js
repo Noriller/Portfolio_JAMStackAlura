@@ -1,16 +1,32 @@
-import { node } from 'prop-types';
+import { arrayOf, string } from 'prop-types';
 import React from 'react';
+import styled from 'styled-components';
 
-export default function NavBar({ children }) {
+const NavBarContainer = styled.div`
+  display: flex;
+`;
+
+const NavBarItem = styled.div`
+  margin: 0 ${({ theme }) => theme.spacings.other};
+`;
+export default function NavBar({ items }) {
   return (
-    <div>
-      {children}
-    </div>
+    <NavBarContainer>
+      {
+        items.map(
+          (el) => (
+            <NavBarItem key={el}>
+              {el}
+            </NavBarItem>
+          ),
+        )
+      }
+    </NavBarContainer>
   );
 }
 
 NavBar.propTypes = {
-  children: node.isRequired,
+  items: arrayOf(string).isRequired,
 };
 
 // ${({ theme }) => theme.getBreakpointValue(theme.textSize.display, theme.textSize.title1, '')}

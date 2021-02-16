@@ -1,11 +1,18 @@
 import { node } from 'prop-types';
 import React from 'react';
+import styled from 'styled-components';
+
+const FooterContainer = styled.div`
+  width: 100%;
+  border: 1px solid;
+  background-color: green;
+`;
 
 export default function Footer({ children }) {
   return (
-    <div>
+    <FooterContainer>
       {children}
-    </div>
+    </FooterContainer>
   );
 }
 
