@@ -20,9 +20,9 @@ function getValue(arr, index) {
  */
 
 export default function getBreakpointValue(...cssValues) {
-  const index = useBreakpoint();
+  const { breakpoint } = useBreakpoint() || 0;
 
   const cssArray = padArray(cssValues, breakpoints.length, '');
 
-  return getValue(cssArray, index);
+  return getValue(cssArray, breakpoint);
 }

@@ -1,11 +1,20 @@
 import { node } from 'prop-types';
 import React from 'react';
+import styled from 'styled-components';
 
+const CapaContainer = styled.div`
+  width: 100vw;
+  height: 100vh;
+  background-color: red;
+  border: 10px solid yellow;
+  inline-size: auto;
+  text-align: ${({ theme }) => theme.getBreakpointValue('center', 'start', 'right', 'center')}
+`;
 export default function Capa({ children }) {
   return (
-    <div>
+    <CapaContainer>
       {children}
-    </div>
+    </CapaContainer>
   );
 }
 
