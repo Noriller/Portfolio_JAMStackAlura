@@ -2,7 +2,7 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import Head from 'next/head';
 import React from 'react';
-import ThemeWrapper from '../src/Theme/ThemeWrapper';
+import ThemeWrapper from '../src/Theme';
 
 export default function App({ Component, pageProps }) {
   return (

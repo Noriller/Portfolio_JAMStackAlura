@@ -1,13 +1,13 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import { node } from 'prop-types';
-import { breakpoints } from './breakpoints';
+import { breakpoints } from './CustomBreakpoints';
 
 const BreakpointContext = createContext({ breakpoint: 9999, width: 1200, height: 900 });
 
 function useWindowSize() {
   const [windowSize, setWindowSize] = useState({
-    width: undefined,
-    height: undefined,
+    width: null,
+    height: null,
   });
 
   useEffect(() => {
@@ -29,7 +29,7 @@ function useWindowSize() {
 }
 
 function getIndex(points, width) {
-  if (width === undefined) return points.length;
+  if (width === undefined || width === null) return points.length;
 
   const tryPoint = points.pop();
   const index = points.length;

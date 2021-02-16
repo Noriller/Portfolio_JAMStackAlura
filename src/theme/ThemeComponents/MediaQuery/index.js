@@ -1,6 +1,6 @@
 import BreakpointContextProvider, { useBreakpoint } from './BreakPointContext';
 import getBreakpointValue from './getBreakpointValue';
-import inserMediaQuery from './inserMediaQuery';
+import insertMediaQuery from './insertMediaQuery';
 
 export default BreakpointContextProvider;
-export { getBreakpointValue, useBreakpoint, inserMediaQuery };
+export { getBreakpointValue, useBreakpoint, insertMediaQuery };

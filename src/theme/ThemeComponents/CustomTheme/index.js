@@ -1,3 +1,3 @@
-import CustomTheme from './Theme';
+import CustomTheme from './CustomTheme';
 
 export default CustomTheme;

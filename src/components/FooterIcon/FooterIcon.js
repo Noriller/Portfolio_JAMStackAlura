@@ -14,5 +14,5 @@ FooterIcon.propTypes = {
 };
 
 // ${({ theme }) => theme.getBreakpointValue(theme.textSize.display, theme.textSize.title1, '')}
-// ${inserMediaQuery(xs, md, xl)}
+// ${insertMediaQuery(xs, md, xl)}
 // import styled, { css } from 'styled-components';

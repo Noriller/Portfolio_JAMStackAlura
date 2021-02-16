@@ -1,5 +1,5 @@
 import { css } from 'styled-components';
-import { breakpoints } from './breakpoints';
+import { breakpoints } from './CustomBreakpoints';
 import { padArray } from '../../../utils';
 
 function getMaxWidth(min, arr) {
@@ -31,7 +31,7 @@ function mediaQueryParse(CSS, index, limit) {
  *
  * @param cssValues css (from styled-components) separated by comma, null or empty string;
  */
-function inserMediaQuery(...cssValues) {
+function insertMediaQuery(...cssValues) {
   const cssArray = padArray(cssValues, breakpoints.length, '');
 
   const limitArray = cssArray
@@ -43,4 +43,4 @@ function inserMediaQuery(...cssValues) {
   `;
 }
 
-export default inserMediaQuery;
+export default insertMediaQuery;

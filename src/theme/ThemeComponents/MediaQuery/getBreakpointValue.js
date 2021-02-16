@@ -1,6 +1,6 @@
 import { padArray } from '../../../utils';
 import { useBreakpoint } from './BreakPointContext';
-import { breakpoints } from './breakpoints';
+import { breakpoints } from './CustomBreakpoints';
 
 function getValue(arr, index) {
   const simpleValue = arr[index];
