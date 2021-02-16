@@ -1,6 +1,6 @@
 import { padArray } from '../../../utils';
-import breakpoints from '../MediaBreakpoints/breakpoints';
 import { useBreakpoint } from './BreakPointContext';
+import { breakpoints } from './breakpoints';
 
 function getValue(arr, index) {
   const simpleValue = arr[index];
@@ -18,8 +18,8 @@ function getValue(arr, index) {
  * @param  {...any} cssValues values to use depending on breakpoints defined.
  * Use null to return nothing and empty string or leaving blank to return previous values.
  */
-// eslint-disable-next-line import/prefer-default-export
-export function getBreakpointValue(...cssValues) {
+
+export default function getBreakpointValue(...cssValues) {
   const index = useBreakpoint();
 
   const cssArray = padArray(cssValues, breakpoints.length, '');

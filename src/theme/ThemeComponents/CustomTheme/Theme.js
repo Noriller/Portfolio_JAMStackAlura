@@ -39,7 +39,7 @@ const darkTheme = {
   },
 };
 
-export default function Theme(theme) {
+export default function CustomTheme(theme) {
   const chosenTheme = theme === 'light' ? lightTheme : darkTheme;
 
   return { ...baseTheme, ...chosenTheme };

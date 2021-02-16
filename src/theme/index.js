@@ -1,3 +1,3 @@
 import ThemeWrapper from './ThemeWrapper';
 
-export default ThemeWrapper();
+export default ThemeWrapper;

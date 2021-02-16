@@ -4,16 +4,16 @@ import React, { useEffect, useState } from 'react';
 import { ThemeProvider } from 'styled-components';
 import Head from 'next/head';
 import GlobalStyle from './ThemeComponents/GlobalStyle';
-import Theme from './ThemeComponents/Theme';
+import CustomTheme from './ThemeComponents/CustomTheme';
 import { ToggleTheme, useDarkMode } from './ThemeComponents/ToggleTheme';
-import BreakpointContextProvider, { getBreakpointValue } from './ThemeComponents/BreakPointContext';
+import BreakpointContextProvider, { getBreakpointValue } from './ThemeComponents/MediaQuery';
 
 export default function ThemeWrapper({ children }) {
   const { theme, toggleTheme, componentMounted } = useDarkMode();
   const [userTheme, setUserTheme] = useState();
 
   useEffect(() => {
-    setUserTheme(Theme(theme));
+    setUserTheme(CustomTheme(theme));
   }, [theme]);
 
   if (componentMounted) {

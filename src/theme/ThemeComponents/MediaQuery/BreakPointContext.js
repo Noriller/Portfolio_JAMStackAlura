@@ -1,8 +1,8 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import { node } from 'prop-types';
-import breakpoints from '../MediaBreakpoints/breakpoints';
+import { breakpoints } from './breakpoints';
 
-const BreakpointContext = createContext(9999);
+const BreakpointContext = createContext({ breakpoint: 9999, width: 1200, height: 900 });
 
 function useWindowSize() {
   const [windowSize, setWindowSize] = useState({
@@ -45,10 +45,16 @@ function getBreakpoint(width) {
 
 export default function BreakpointContextProvider({ children }) {
   const [breakpoint, setBreakpoint] = useState();
-  const { width } = useWindowSize();
+  const { width, height } = useWindowSize();
 
   useEffect(() => {
-    setBreakpoint(getBreakpoint(width));
+    setBreakpoint(
+      {
+        breakpoint: getBreakpoint(width),
+        width,
+        height,
+      },
+    );
   }, [width]);
 
   return (

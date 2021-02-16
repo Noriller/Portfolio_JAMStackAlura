@@ -1,5 +1,5 @@
 import { css } from 'styled-components';
-import breakpoints from './breakpoints';
+import { breakpoints } from './breakpoints';
 import { padArray } from '../../../utils';
 
 function getMaxWidth(min, arr) {
@@ -43,4 +43,4 @@ function inserMediaQuery(...cssValues) {
   `;
 }
 
-export { inserMediaQuery, breakpoints };
+export default inserMediaQuery;

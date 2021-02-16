@@ -12,10 +12,13 @@ import Logo from '../src/components/Logo';
 import NavBar from '../src/components/NavBar';
 import SectionTitle from '../src/components/SectionTitle';
 import WrapperProjetos from '../src/components/WrapperProjetos';
+import { useBreakpoint } from '../src/theme/ThemeComponents/MediaQuery';
 
 export default function Home() {
+  const coisa = useBreakpoint();
   return (
     <>
+      {console.log(coisa)}
       <Capa>
         Capa!
       </Capa>
