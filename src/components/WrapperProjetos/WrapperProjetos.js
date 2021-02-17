@@ -5,7 +5,6 @@ import styled from 'styled-components';
 const WrapperProjetosContainer = styled.div`
   width: 100%;
   border: 1px solid;
-  background-color: red;
 `;
 export default function WrapperProjetos({ children }) {
   return (

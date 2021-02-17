@@ -48,10 +48,8 @@ export default function Home() {
         </CardDestaque>
       </WrapperProjetos>
       <Footer>
-        Footer
-        <FooterIcon>
-          FooterIcon
-        </FooterIcon>
+        <FooterIcon img="git" />
+        <FooterIcon img="linkedin" />
       </Footer>
     </>
   );
