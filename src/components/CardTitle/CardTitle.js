@@ -5,8 +5,8 @@ import styled from 'styled-components';
 const CardTitleContainer = styled.div`
   font-size: ${({ theme }) => theme.getBreakpointValue(theme.baseSizes.small.xs, theme.baseSizes.small.md, theme.baseSizes.small.lg, theme.baseSizes.small.xl)};
   width: 70%;
-  padding: 0.5em 0;
-  border: 2px solid;
+  padding: 1em 0;
+  border: 1px solid;
   inline-size: auto;
   text-align: center;
   display: flex;

@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 const SectionTitleContainer = styled.div`
   font-size: ${({ theme }) => theme.getBreakpointValue(theme.baseSizes.medium.xs, theme.baseSizes.medium.md, theme.baseSizes.medium.lg, theme.baseSizes.medium.xl)};
+  font-weight: bold;
   width: 70vw;
   padding: 0.5em 0;
   border: 2px solid;
