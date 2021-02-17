@@ -2,11 +2,17 @@ import { node } from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
 
+const CardContainer = styled.div`
+  width: 70%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+`;
 export default function Card({ children }) {
   return (
-    <div>
+    <CardContainer>
       {children}
-    </div>
+    </CardContainer>
   );
 }
 

@@ -1,8 +1,9 @@
 /* eslint-disable max-len */
 /*
 ${({ theme }) => theme.getBreakpointValue(theme.baseSizes.big.xs, theme.baseSizes.big.md, theme.baseSizes.big.lg, theme.baseSizes.big.xl)}
-${({ theme }) => theme.getBreakpointValue(theme.baseSizes.small.xs, theme.baseSizes.small.md, theme.baseSizes.small.lg, theme.baseSizes.small.xl)}
 ${({ theme }) => theme.getBreakpointValue(theme.baseSizes.medium.xs, theme.baseSizes.medium.md, theme.baseSizes.medium.lg, theme.baseSizes.medium.xl)}
+${({ theme }) => theme.getBreakpointValue(theme.baseSizes.small.xs, theme.baseSizes.small.md, theme.baseSizes.small.lg, theme.baseSizes.small.xl)}
+${({ theme }) => theme.getBreakpointValue(theme.baseSizes.text.xs, theme.baseSizes.text.md, theme.baseSizes.text.lg, theme.baseSizes.text.xl)}
 */
 const baseTheme = {
   baseSizes: {
@@ -23,6 +24,12 @@ const baseTheme = {
       md: '1.5rem',
       lg: '2rem',
       xl: '3rem',
+    },
+    text: {
+      xs: '0.75rem',
+      md: '1rem',
+      lg: '1.5rem',
+      xl: '2rem',
     },
   },
   spacings: {

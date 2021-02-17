@@ -8,6 +8,7 @@ const NavBarContainer = styled.div`
 
 const NavBarItem = styled.div`
   margin: 0 ${({ theme }) => theme.spacings.other};
+  font-size: ${({ theme }) => theme.getBreakpointValue(theme.baseSizes.small.xs, theme.baseSizes.small.md, theme.baseSizes.small.lg, theme.baseSizes.small.xl)}
 `;
 export default function NavBar({ items }) {
   return (

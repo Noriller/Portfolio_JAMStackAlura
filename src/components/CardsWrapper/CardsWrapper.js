@@ -2,22 +2,23 @@ import { node } from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
 
-const CardDestaqueContainer = styled.div`
-  width: 70%;
+const CardsWrapperContainer = styled.div`
+  min-width: 70%;
+  max-width: 90%;
   margin: auto;
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  flex-direction: row;
 `;
-
-export default function CardDestaque({ children }) {
+export default function CardsWrapper({ children }) {
   return (
-    <CardDestaqueContainer>
+    <CardsWrapperContainer>
       {children}
-    </CardDestaqueContainer>
+    </CardsWrapperContainer>
   );
 }
 
-CardDestaque.propTypes = {
+CardsWrapper.propTypes = {
   children: node.isRequired,
 };
 

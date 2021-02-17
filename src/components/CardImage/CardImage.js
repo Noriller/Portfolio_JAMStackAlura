@@ -1,16 +1,21 @@
-import { node } from 'prop-types';
+import { string } from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
-export default function CardImage({ children }) {
+
+const StyledImage = styled.img`
+  object-fit: cover;
+`;
+export default function CardImage({ src }) {
   return (
-    <div>
-      {children}
-    </div>
+    <StyledImage
+      src={src}
+      alt="alt"
+    />
   );
 }
 
 CardImage.propTypes = {
-  children: node.isRequired,
+  src: string.isRequired,
 };
 
 // ${({ theme }) => theme.getBreakpointValue(theme.textSize.display, theme.textSize.title1, '')}
