@@ -2,7 +2,7 @@
 /* eslint-disable react/prop-types */
 import Head from 'next/head';
 import React from 'react';
-import ThemeWrapper from '../src/Theme';
+import ThemeWrapper from '../src/theme';
 
 export default function App({ Component, pageProps }) {
   return (
