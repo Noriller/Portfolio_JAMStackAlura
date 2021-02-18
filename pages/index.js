@@ -58,8 +58,8 @@ export default function Home() {
         </CardsWrapper>
       </WrapperProjetos>
       <Footer>
-        <FooterIcon img="git" />
-        <FooterIcon img="linkedin" />
+        <FooterIcon variant="Github" />
+        <FooterIcon variant="Linkedin" />
       </Footer>
     </>
   );
