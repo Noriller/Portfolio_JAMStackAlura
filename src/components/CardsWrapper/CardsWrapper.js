@@ -19,7 +19,8 @@ const OthersWrapper = styled.div`
   & > * {
     background: blue;
     flex: 1 1;
-    min-width: ${({ theme }) => theme.getBreakpointValue('calc(100% - 16px)', 'calc(30% - 16px)')};
+    min-width: ${({ theme }) => theme.getBreakpointValue('calc(100% - 16px)', 'calc(50% - 16px)', 'calc(30% - 16px)')};
+    max-width: ${({ theme }) => theme.getBreakpointValue('calc(100% - 16px)', 'calc(50% - 16px)', 'calc(40% - 16px)')};
   }
 `;
 
@@ -43,7 +44,3 @@ export default function CardsWrapper({ children }) {
 CardsWrapper.propTypes = {
   children: node.isRequired,
 };
-
-// ${({ theme }) => theme.getBreakpointValue(theme.textSize.display, theme.textSize.title1, '')}
-// ${insertMediaQuery(xs, md, xl)}
-// import styled, { css } from 'styled-components';
