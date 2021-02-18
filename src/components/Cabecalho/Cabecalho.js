@@ -3,7 +3,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const CabecalhoContainer = styled.div`
-  width: 100vw;
+  width: 100%;
   border: 1px solid;
   display: flex;
   justify-content: space-around;
