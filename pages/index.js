@@ -1,5 +1,6 @@
 import React from 'react';
-import Cabecalho from '../src/components/Cabecalho';
+import Link from 'next/link';
+
 import Capa from '../src/components/Capa';
 import Card from '../src/components/Card';
 import CardDestaque from '../src/components/CardDestaque';
@@ -8,20 +9,16 @@ import CardTitle from '../src/components/CardTitle';
 import CardImage from '../src/components/CardImage';
 import Footer from '../src/components/Footer';
 import FooterIcon from '../src/components/FooterIcon';
-import Logo from '../src/components/Logo';
-import NavBar from '../src/components/NavBar';
 import SectionTitle from '../src/components/SectionTitle';
 import WrapperProjetos from '../src/components/WrapperProjetos';
 import CardsWrapper from '../src/components/CardsWrapper';
+import Header from '../src/components/Header';
 
 export default function Home() {
   return (
     <>
       <Capa title="Bruno Noriller" subtitle="Portfolio" />
-      <Cabecalho>
-        <Logo />
-        <NavBar items={['About', 'Contact']} />
-      </Cabecalho>
+      <Header />
       <WrapperProjetos>
         <SectionTitle>
           SectionTitle
@@ -58,9 +55,14 @@ export default function Home() {
         </CardsWrapper>
       </WrapperProjetos>
       <Footer>
-        <FooterIcon variant="Github" />
-        <FooterIcon variant="Linkedin" />
+        <a href="https://github.com/noriller" target="_blank" rel="noreferrer">
+          <FooterIcon variant="Github" />
+        </a>
+        <a href="https://www.linkedin.com/in/noriller/" target="_blank" rel="noreferrer">
+          <FooterIcon variant="Linkedin" />
+        </a>
       </Footer>
     </>
   );
 }
+
