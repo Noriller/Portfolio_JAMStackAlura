@@ -1,78 +1,53 @@
-# Example app with styled-components
+# O que eu fiz de MAIS interessante neste projeto
 
-This example features how you use a different styling solution than [styled-jsx](https://github.com/zeit/styled-jsx) that also supports universal styles. That means we can serve the required styles for the first render within the HTML and then load the rest in the client. In this case we are using [styled-components](https://github.com/styled-components/styled-components).
+### Preparações necessárias para o uso das ferramentas abaixo
 
-For this purpose we are extending the `<Document />` and injecting the server side rendered styles into the `<head>`, and also adding the `babel-plugin-styled-components` (which is required for server side rendering). Additionally we set up a global [theme](https://www.styled-components.com/docs/advanced#theming) for styled-components using NextJS custom [`<App>`](https://nextjs.org/docs/advanced-features/custom-app) component.
+No momento, é necessário um array de breakpoints (de preferencia começando em 0, já que está sendo suposto de "X a Y" em algumas partes.).
 
-## Deploy your own
-
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example):
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-styled-components&project-name=with-styled-components&repository-name=with-styled-components)
-
-## How to use
-
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init) or [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) to bootstrap the example:
-
-```bash
-npx create-next-app --example with-styled-components with-styled-components-app
-# or
-yarn create next-app --example with-styled-components with-styled-components-app
-```
-
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
-
-### Try it on CodeSandbox
-
-[Open this example on CodeSandbox](https://codesandbox.io/s/github/vercel/next.js/tree/canary/examples/with-styled-components)
-
-### Notes
-
-When wrapping a [Link](https://nextjs.org/docs/api-reference/next/link) from `next/link` within a styled-component, the [as](https://styled-components.com/docs/api#as-polymorphic-prop) prop provided by `styled` will collide with the Link's `as` prop and cause styled-components to throw an `Invalid tag` error. To avoid this, you can either use the recommended [forwardedAs](https://styled-components.com/docs/api#forwardedas-prop) prop from styled-components or use a different named prop to pass to a `styled` Link.
-
-<details>
-<summary>Click to expand workaround example</summary>
-<br />
-
-**components/StyledLink.js**
+## insertMediaQuery
 
 ```javascript
-import Link from 'next/link'
-import styled from 'styled-components'
-
-const StyledLink = ({ as, children, className, href }) => (
-  <Link href={href} as={as} passHref>
-    <a className={className}>{children}</a>
-  </Link>
-)
-
-export default styled(StyledLink)`
-  color: #0075e0;
-  text-decoration: none;
-  transition: all 0.2s ease-in-out;
-
-  &:hover {
-    color: #40a9ff;
-  }
-
-  &:focus {
-    color: #40a9ff;
-    outline: none;
-    border: 0;
-  }
-`
+    insertMediaQuery(...cssValues)
 ```
 
-**pages/index.js**
+Se insere os valores, separados por vírgula.
+
+São aceitos valores CSS válidos como 'String' ou como funções 'css' do Styled Components.
+
+A função então insere como CSS do Styled Components as "@Media Queries" que serão interpretadas pelo browser.
+
+## getBreakpointValue
 
 ```javascript
-import StyledLink from '../components/StyledLink'
-
-export default () => (
-  <StyledLink href="/post/[pid]" forwardedAs="/post/abc">
-    First post
-  </StyledLink>
-)
+    ${({ theme }) => theme.getBreakpointValue(...cssValues)};
 ```
 
-</details>
+Usar dentro de qualquer função/componente do Styled Components.
+
+Aceita valores ou funções css do Styled Components.
+
+### Sobre os breakpoints e as funções
+
+Considerando que é usado uma abordagem de "pelo menos" X pixeis em todos, as funções acima seguem a seguinte regra:
+
+- Valores nulos (null) não são inseridos e criam condições "até" X pixeis.
+
+- Valores vazios (empty string => '') são considerados como inclusão do valor anterior. Em outras palavras, utilizam o mesmo valor anterior.
+
+  - Se o valor anterior for nulo, este também será.
+
+- Considerando a abordagem de "Mobile first", os primeiros valores são "obrigatórios", enquanto que o resto pode ser omitido. Em caso de omissão, é considerado o valor '' (empty string).
+
+  - Ex: mesmo com diversos breakpoints, se a diferença acontece apenas do primeiro para o segundo breakpoint, coloque os dois e omita o resto.
+
+### TODO
+
+- Adicionar possibilidade de passar os valores como objetos nomeados (ex: xs: {...}, xl: {...})
+
+- Diminuir verbosidade. (Talvez usar como um decorator das funções Styled Components que teriam já 'acesso nativo' a função.)
+
+  - Neste caso, pensando em desempenho, a função pode retornar valores de CSS "@media query" que não precisam renderizar novamente os componentes.
+
+- Publicar como um Framework! 😂
+
+  - O nome já tenho: "Styled Media Queries"!
