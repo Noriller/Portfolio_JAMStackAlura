@@ -25,7 +25,7 @@ export default function Home() {
         </SectionTitle>
         <CardsWrapper>
           <CardDestaque>
-            <CardImage src="https://picsum.photos/700" />
+            <CardImage src="/mathQuizz.png" />
             <CardTitle>
               Math Quizz
             </CardTitle>
