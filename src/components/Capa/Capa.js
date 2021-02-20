@@ -43,7 +43,3 @@ Capa.propTypes = {
 Capa.defaultProps = {
   subtitle: null,
 };
-
-// ${({ theme }) => theme.getBreakpointValue(theme.textSize.display, theme.textSize.title1, '')}
-// ${insertMediaQuery(xs, md, xl)}
-// import styled, { css } from 'styled-components';

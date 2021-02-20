@@ -17,7 +17,3 @@ export default function WrapperProjetos({ children }) {
 WrapperProjetos.propTypes = {
   children: node.isRequired,
 };
-
-// ${({ theme }) => theme.getBreakpointValue(theme.textSize.display, theme.textSize.title1, '')}
-// ${insertMediaQuery(xs, md, xl)}
-// import styled, { css } from 'styled-components';

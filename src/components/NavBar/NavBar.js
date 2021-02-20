@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { arrayOf, string } from 'prop-types';
+import { arrayOf, object, shape, string } from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
 
@@ -39,9 +39,8 @@ export default function NavBar({ items }) {
 }
 
 NavBar.propTypes = {
-  items: arrayOf(string).isRequired,
+  items: arrayOf(shape({
+    target: string.isRequired,
+    href: string.isRequired,
+  })).isRequired,
 };
-
-// ${({ theme }) => theme.getBreakpointValue(theme.textSize.display, theme.textSize.title1, '')}
-// ${insertMediaQuery(xs, md, xl)}
-// import styled, { css } from 'styled-components';

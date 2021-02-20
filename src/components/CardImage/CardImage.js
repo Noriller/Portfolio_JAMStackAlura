@@ -17,7 +17,3 @@ export default function CardImage({ src }) {
 CardImage.propTypes = {
   src: string.isRequired,
 };
-
-// ${({ theme }) => theme.getBreakpointValue(theme.textSize.display, theme.textSize.title1, '')}
-// ${insertMediaQuery(xs, md, xl)}
-// import styled, { css } from 'styled-components';

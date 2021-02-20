@@ -21,13 +21,13 @@ export default function Home() {
       <Header />
       <WrapperProjetos>
         <SectionTitle>
-          SectionTitle
+          The Projects
         </SectionTitle>
         <CardsWrapper>
           <CardDestaque>
-            <CardImage src="https://picsum.photos/500" />
+            <CardImage src="https://picsum.photos/700" />
             <CardTitle>
-              CardTitle
+              Math Quizz
             </CardTitle>
             <CardText>
               {/* eslint-disable-next-line max-len */}
@@ -35,21 +35,39 @@ export default function Home() {
             </CardText>
           </CardDestaque>
           <Card>
-            <CardImage src="https://picsum.photos/500" />
+            <CardImage src="https://picsum.photos/400" />
             <CardTitle>
-              CardTitle
+              Filler 1
             </CardTitle>
           </Card>
           <Card>
             <CardImage src="https://picsum.photos/500" />
             <CardTitle>
-              CardTitle
+              Filler 2
             </CardTitle>
           </Card>
           <Card>
-            <CardImage src="https://picsum.photos/500" />
+            <CardImage src="https://picsum.photos/600" />
             <CardTitle>
-              CardTitle
+              Filler 3
+            </CardTitle>
+          </Card>
+          <Card>
+            <CardImage src="https://picsum.photos/450" />
+            <CardTitle>
+              Filler 4
+            </CardTitle>
+          </Card>
+          <Card>
+            <CardImage src="https://picsum.photos/510" />
+            <CardTitle>
+              Filler 5
+            </CardTitle>
+          </Card>
+          <Card>
+            <CardImage src="https://picsum.photos/410" />
+            <CardTitle>
+              Filler 6
             </CardTitle>
           </Card>
         </CardsWrapper>
@@ -65,4 +83,3 @@ export default function Home() {
     </>
   );
 }
-

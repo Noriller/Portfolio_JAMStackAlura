@@ -1,7 +1,6 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import React, { useEffect, useState } from 'react';
 import { func, string } from 'prop-types';
-import { insertMediaQuery } from '../MediaQuery';
 
 /**
  * @borrows @tutorial https://css-tricks.com/a-dark-mode-toggle-with-react-and-themeprovider/
@@ -39,7 +38,7 @@ const ToggleContainer = styled.button`
   overflow: hidden;
   cursor: pointer;
   transform-origin: top right;
-  transform: scale(${({ theme }) => theme.getBreakpointValue(0.6, 0.8, 1, 1.2)});
+  transform: scale(${({ theme }) => theme.getBreakpointValue(0.6, 0.8, 1, 1.2, 1.5)});
 
   img {
     max-width: 2.5rem;

@@ -1,4 +1,4 @@
-const breakpoints = [0, 600, 1200, 2000];
+const breakpoints = [0, 600, 992, 1200, 1920];
 
 export default breakpoints;
 
@@ -16,3 +16,6 @@ export default breakpoints;
 
 // /* Extra large devices (large laptops and desktops, 1200px and up) */
 // @media only screen and (min-width: 1200px) {...}
+
+// /* Ultra wide devices (large desktops, 1920px and up) */
+// @media only screen and (min-width: 1920px) {...}
