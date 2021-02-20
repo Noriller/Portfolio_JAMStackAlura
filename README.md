@@ -12,7 +12,7 @@ Uso básico:
     insertMediaQuery(...cssValues)
 ```
 
-Se insere os valores, separados por vírgula.
+Inserir os valores separados por vírgula.
 
 São aceitos valores CSS válidos como 'String' ou como funções 'css' do Styled Components.
 
@@ -28,7 +28,17 @@ Uso básico:
 
 Usar dentro de qualquer função/componente do Styled Components.
 
-Aceita valores ou funções css do Styled Components.
+Aceita valores puros (strings, numbers...) ou funções css do Styled Components.
+
+Por aceitar valores, é possível ter um CSS mais semântico:
+
+```javascript
+    const StyledComponent = styled.div`
+        font-size: ${({ theme }) => 
+            theme.getBreakpointValue(10, 16, 24, 32)}px;
+    `
+```
+
 
 ### Sobre os breakpoints e as funções
 
@@ -36,7 +46,7 @@ Considerando que é usado uma abordagem de "pelo menos" X pixeis em todos, as fu
 
 - Valores nulos (null) não são inseridos e criam condições "até" X pixeis.
 
-- Valores vazios (empty string => '') são considerados como inclusão do valor anterior. Em outras palavras, utilizam o mesmo valor anterior.
+- Valores vazios (empty string, '') são considerados continuações do valor anterior. Em outras palavras, utilizam o mesmo valor anterior.
 
   - Se o valor anterior for nulo, este também será.
 
