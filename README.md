@@ -6,6 +6,8 @@ No momento, é necessário um array de breakpoints (de preferencia começando em
 
 ## insertMediaQuery
 
+Uso básico:
+
 ```javascript
     insertMediaQuery(...cssValues)
 ```
@@ -17,6 +19,8 @@ São aceitos valores CSS válidos como 'String' ou como funções 'css' do Style
 A função então insere como CSS do Styled Components as "@Media Queries" que serão interpretadas pelo browser.
 
 ## getBreakpointValue
+
+Uso básico:
 
 ```javascript
     ${({ theme }) => theme.getBreakpointValue(...cssValues)};
