@@ -1,18 +1,20 @@
 import React from 'react';
 import Link from 'next/link';
+import {
+  Capa,
+  Header,
+  WrapperProjetos,
+  SectionTitle,
+  CardDestaque,
+  CardsWrapper,
+  CardImage,
+  CardTitle,
+  CardText,
+  Card,
+  Footer,
+  FooterIcon,
+} from '../src/components';
 
-import Capa from '../src/components/Capa';
-import Card from '../src/components/Card';
-import CardDestaque from '../src/components/CardDestaque';
-import CardText from '../src/components/CardText';
-import CardTitle from '../src/components/CardTitle';
-import CardImage from '../src/components/CardImage';
-import Footer from '../src/components/Footer';
-import FooterIcon from '../src/components/FooterIcon';
-import SectionTitle from '../src/components/SectionTitle';
-import WrapperProjetos from '../src/components/WrapperProjetos';
-import CardsWrapper from '../src/components/CardsWrapper';
-import Header from '../src/components/Header';
 
 export default function Home() {
   return (

@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { arrayOf, object, shape, string } from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
+import FloaterButton from '../FloatButton/FloatButton';
 
 const NavBarContainer = styled.div`
   display: flex;
@@ -34,6 +35,7 @@ export default function NavBar({ items }) {
           ),
         )
       }
+      <FloaterButton />
     </NavBarContainer>
   );
 }
