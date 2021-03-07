@@ -4,6 +4,7 @@ export { default as SectionTitle } from './SectionTitle/SectionTitle';
 export { default as WrapperProjetos } from './WrapperProjetos/WrapperProjetos';
 export { default as Header } from './Header/Header';
 export { default as Logo } from './Logo/Logo';
+export { default as Modal } from './Modal/Modal';
 export { default as FormContainer } from './FormContainer/FormContainer';
 export { default as FormCadastro } from './FormContainer/FormCadastro';
 export { default as Footer } from './Footer/Footer';

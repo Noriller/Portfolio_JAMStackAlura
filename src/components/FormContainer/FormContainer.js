@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import FloaterButton from '../FloatButton/FloatButton';
 import FormCadastro from './FormCadastro';
-import Modal from './Modal';
+import Modal from '../Modal/Modal';
 
 export default function FormContainer() {
   const [modalIsOpen, setModalIsOpen] = useState(false);

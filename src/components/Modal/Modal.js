@@ -1,3 +1,4 @@
+/* eslint-disable no-use-before-define */
 import { motion } from 'framer-motion';
 import React, { useEffect } from 'react';
 import styled, { createGlobalStyle, css } from 'styled-components';
