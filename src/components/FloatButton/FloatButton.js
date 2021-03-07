@@ -1,6 +1,7 @@
 /* eslint-disable no-use-before-define */
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
+import FooterIcon from '../FooterIcon/FooterIcon';
 
 const Floater = styled.div`
   position: absolute;
@@ -18,7 +19,7 @@ const Floater = styled.div`
   box-sizing: border-box
 `;
 
-export default function FloaterButton() {
+export default function FloaterButton({ show }) {
   const [toTop, setToTop] = useState(150);
 
   useEffect(() => {
@@ -38,8 +39,10 @@ export default function FloaterButton() {
   }
 
   return (
-    <Floater style={{ top: toTop }}>
-      oi
-    </Floater>
+    show ? (
+      <Floater style={{ top: toTop }}>
+        <FooterIcon variant="mail" />
+      </Floater>
+    ) : null
   );
 }

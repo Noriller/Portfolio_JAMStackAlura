@@ -27,6 +27,15 @@ const LinkedinVariant = styled(FooterIconContainer)`
   border-radius: 0;
 `;
 
+const MailVariant = styled(FooterIconContainer)`
+  background-image: url("/mail.png");
+  background-repeat: no-repeat;
+  background-position: 50%;
+  background-size: 105%;
+  border-radius: 0;
+  filter: ${({ theme }) => ((theme.theme === 'dark') ? 'invert(1)' : null)}
+`;
+
 const Default = styled(FooterIconContainer)`
   background-image: url("/BrunoHope.jpg");
   background-repeat: no-repeat;
@@ -40,6 +49,10 @@ export default function FooterIcon({ variant }) {
 
   if (variant === 'Linkedin') {
     return <LinkedinVariant />;
+  }
+
+  if (variant === 'mail') {
+    return <MailVariant />;
   }
 
   return <Default />;

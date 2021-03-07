@@ -35,7 +35,7 @@ export default function NavBar({ items }) {
           ),
         )
       }
-      <FloaterButton />
+      <FloaterButton show />
     </NavBarContainer>
   );
 }
