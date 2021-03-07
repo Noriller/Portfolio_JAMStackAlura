@@ -2,6 +2,8 @@
   "name": "bruno-noriller-portfolio",
   "version": "1.0.0",
   "scripts": {
+    "postinstall": "husky install",
+    "prepare": "husky install",
     "dev": "next",
     "build": "next build",
     "start": "next start",
