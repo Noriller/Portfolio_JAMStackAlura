@@ -65,3 +65,4 @@ Considerando que é usado uma abordagem de "pelo menos" X pixeis em todos, as fu
 - Publicar como um Framework! 😂
 
   - O nome já tenho: "Styled Media Queries"!
+
