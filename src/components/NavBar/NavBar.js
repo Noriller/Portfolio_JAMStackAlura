@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { arrayOf, shape, string } from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
-import FormCadastro from '../FormCadastro/FormCadastro';
+import FormContainer from '../FormContainer/FormContainer';
 
 const NavBarContainer = styled.div`
   display: flex;
@@ -35,7 +35,7 @@ export default function NavBar({ items }) {
           ),
         )
       }
-      <FormCadastro />
+      <FormContainer />
     </NavBarContainer>
   );
 }
