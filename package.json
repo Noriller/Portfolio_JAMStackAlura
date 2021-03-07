@@ -30,7 +30,8 @@
   },
   "husky": {
     "hooks": {
-      "pre-push": "yarn lint:fix && yarn lint"
+      "pre-commit" : "yarn lint:fix",
+      "pre-push": "yarn lint"
     }
   },
   "license": "MIT"
