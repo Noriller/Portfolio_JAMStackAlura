@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import FooterIcon from '../FooterIcon/FooterIcon';
 
-const Floater = styled.div`
+const Floater = styled.button`
   position: absolute;
   top: 150px;
   right: 1px;
@@ -13,22 +13,22 @@ const Floater = styled.div`
   transition: all 0.5s ease-in-out;
   z-index: 1;
   border-radius: 15px 0 0 15px;
-  padding: 15px;
-  color: white;
+  padding: 1px;
+  color: #3333;
   text-align: center;
   box-sizing: border-box
 `;
 
-export default function FloaterButton({ show }) {
+export default function FloaterButton({ show, clickHandle }) {
   const [toTop, setToTop] = useState(150);
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
+    handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   function handleScroll(e) {
-    const window = e.path[1];
     const winScrollTop = window.scrollY;
     const winHeight = window.innerHeight;
     // const floaterHeight = floater.offsetHeight;
@@ -40,7 +40,7 @@ export default function FloaterButton({ show }) {
 
   return (
     show ? (
-      <Floater style={{ top: toTop }}>
+      <Floater style={{ top: toTop }} onClick={clickHandle}>
         <FooterIcon variant="mail" />
       </Floater>
     ) : null

@@ -31,9 +31,9 @@ const MailVariant = styled(FooterIconContainer)`
   background-image: url("/mail.png");
   background-repeat: no-repeat;
   background-position: 50%;
-  background-size: 105%;
   border-radius: 0;
-  filter: ${({ theme }) => ((theme.theme === 'dark') ? 'invert(1)' : null)}
+  height: 3rem;
+  width: 3rem;
 `;
 
 const Default = styled(FooterIconContainer)`
