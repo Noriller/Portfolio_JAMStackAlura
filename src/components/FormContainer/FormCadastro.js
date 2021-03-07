@@ -1,5 +1,10 @@
-import React, { useState } from 'react';
+/* eslint-disable no-use-before-define */
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
+import { Lottie } from '@crello/react-lottie';
+import successAnimation from './Animations/success.json';
+import errorAnimation from './Animations/error.json';
+import submitingAnimation from './Animations/submiting.json';
 
 export const formStates = {
   DEFAULT: 'DEFAULT',
@@ -15,14 +20,15 @@ export default function FormCadastro() {
     message: '',
   });
 
-  const [isFormInvalid, setIsFormInvalid] = useState(true);
+  const [isFormInvalid, setIsFormInvalid] = useState('Fill all the fields.');
 
-  const [isFormSubmited, setIsFormSubmited] = React.useState(false);
-  const [submissionStatus, setSubmissionStatus] = React.useState(formStates.DEFAULT);
+  const [isFormSubmited, setIsFormSubmited] = useState(false);
+  const [submissionStatus, setSubmissionStatus] = useState(formStates.DEFAULT);
 
   function handleClick(event) {
     event.preventDefault();
     setIsFormSubmited(true);
+    setSubmissionStatus(formStates.LOADING);
 
     fetch('https://contact-form-api-jamstack.herokuapp.com/message', {
       method: 'POST',
@@ -45,11 +51,13 @@ export default function FormCadastro() {
             message: '',
           });
           setIsFormSubmited(false);
+          setSubmissionStatus(formStates.DEFAULT);
         }, 5000);
         console.log(json);
       })
       .catch((error) => {
         setSubmissionStatus(formStates.ERROR);
+        setIsFormSubmited(false);
         console.error(error);
       });
   }
@@ -60,16 +68,17 @@ export default function FormCadastro() {
       ...userInfo,
       [fieldName]: event.target.value,
     });
-
-    setIsFormInvalid(checkFormIsInvalid);
   }
+
+  useEffect(() => {
+    setIsFormInvalid(checkFormIsInvalid);
+  }, [userInfo]);
 
   function checkFormIsInvalid() {
     const { name, email, message } = userInfo;
     const emailRegex = /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i;
-
-    if (name.length === 0 || email.length === 0 || message.length === 0) return true;
-    if (!emailRegex.test(email)) return true;
+    if (name.length === 0 || email.length === 0 || message.length === 0) return 'Fill all the fields.';
+    if (!emailRegex.test(email)) return 'Invalid email address.';
 
     return false;
   }
@@ -105,14 +114,47 @@ export default function FormCadastro() {
       </Container>
       <Button
         type="submit"
-        disabled={isFormInvalid}
+        disabled={isFormInvalid || isFormSubmited}
         onClick={handleClick}
       >
-        oi
+        {isFormInvalid || 'Submit'}
       </Button>
+      <AnimationLottie
+        state={submissionStatus}
+      />
     </Form>
   );
 }
+
+function AnimationLottie({ state }) {
+  const [animation, setAnimation] = useState({
+    animation: null,
+    loop: false,
+  });
+
+  useEffect(() => {
+    if (state === formStates.DEFAULT) setAnimation(null);
+    if (state === formStates.LOADING) setAnimation({ animation: submitingAnimation, loop: true });
+    if (state === formStates.ERROR) setAnimation({ animation: errorAnimation, loop: false });
+    if (state === formStates.DONE) setAnimation({ animation: successAnimation, loop: false });
+  }, [state]);
+
+  return animation && (
+    <LottieContainer>
+      <Lottie
+        config={{ animationData: animation.animation, loop: animation.loop, autoplay: true }}
+      />
+    </LottieContainer>
+  );
+}
+
+const LottieContainer = styled.div`
+  height: 150px;
+  width: 150px;
+  align-self: center;
+  margin-top: 2em;
+`;
+
 
 const Form = styled.form`
   display: flex;
@@ -124,6 +166,11 @@ const Container = styled.div`
   flex-direction: column;
   margin: 1em;
   width: 100%;
+
+  h1 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
 `;
 
 const InputContainer = styled.div`
@@ -133,10 +180,18 @@ const InputContainer = styled.div`
 
   input {
     height: 100%;
-    border-radius: 15px;
+    border-radius: 5px;
+    border: 2px solid ${({ theme }) => theme.colors.inputBg};
   }
 `;
 
 const Button = styled.button`
   height: 2em;
+  font-weight: bold;
+  border-radius: 15px;
+
+  &:disabled {
+    background-color: rgba(255, 0, 0, 0.1);
+    color: red;
+  }
 `;

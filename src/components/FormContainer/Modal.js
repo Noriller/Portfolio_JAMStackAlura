@@ -1,8 +1,19 @@
 import { motion } from 'framer-motion';
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled, { createGlobalStyle, css } from 'styled-components';
 
 export default function Modal({ isOpen, onClose, children }) {
+  useEffect(() => {
+    window.addEventListener('keydown', listenEsc);
+    return () => window.removeEventListener('keydown', listenEsc);
+  }, []);
+
+  function listenEsc(e) {
+    if (e.key === 'Escape') {
+      onClose();
+    }
+  }
+
   return (
     <ModalWrapper
       isOpen={isOpen}
@@ -13,6 +24,14 @@ export default function Modal({ isOpen, onClose, children }) {
     >
       {isOpen && <LockScroll />}
       <SafeArea isOpen={isOpen}>
+        <CloseButton
+          type="button"
+          onClick={onClose}
+        >
+          <Icon viewBox="0 0 24 24">
+            <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
+          </Icon>
+        </CloseButton>
         {children}
       </SafeArea>
     </ModalWrapper>
@@ -36,6 +55,25 @@ function SafeArea({ children, isOpen }) {
     </ModalSafeArea>
   );
 }
+
+const Icon = styled.svg.attrs({
+  version: '1.1',
+  xmlns: 'http://www.w3.org/2000/svg',
+  xmlnsXlink: 'http://www.w3.org/1999/xlink',
+})`
+  width: 80%;
+  height: 80%;
+  fill: red;
+`;
+
+const CloseButton = styled.button`
+  flex: none;
+  transition: fill 0.25s;
+  width: 35px;
+  height: 35px;
+  background-color: transparent;
+  margin-left: 100%;
+`;
 
 const ModalSafeArea = styled.div`
   background-color: ${({ theme }) => theme.bg};

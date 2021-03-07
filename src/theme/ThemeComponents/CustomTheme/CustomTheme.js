@@ -45,6 +45,7 @@ const baseTheme = {
 const lightTheme = {
   colors: {
     primary: '#0070f3',
+    inputBg: '#666666',
   },
   bg: 'white',
   textContrast: '#222222',
@@ -57,6 +58,7 @@ const lightTheme = {
 const darkTheme = {
   colors: {
     primary: 'red',
+    inputBg: '#fafafab3',
   },
   bg: '#333333',
   textContrast: 'white',
