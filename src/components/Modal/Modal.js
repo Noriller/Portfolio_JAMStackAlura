@@ -1,5 +1,5 @@
-/* eslint-disable no-use-before-define */
 import { motion } from 'framer-motion';
+import { func, node } from 'prop-types';
 import React, { useEffect } from 'react';
 import styled, { createGlobalStyle, css } from 'styled-components';
 
@@ -39,6 +39,12 @@ export default function Modal({ isOpen, onClose, children }) {
   );
 }
 
+Modal.propTypes = {
+  isOpen: func.isRequired,
+  onClose: func.isRequired,
+  children: node.isRequired,
+};
+
 function SafeArea({ children, isOpen }) {
   const variants = {
     open: { opacity: 1, x: 0 },
@@ -56,6 +62,11 @@ function SafeArea({ children, isOpen }) {
     </ModalSafeArea>
   );
 }
+
+SafeArea.propTypes = {
+  children: node.isRequired,
+  isOpen: func.isRequired,
+};
 
 const Icon = styled.svg.attrs({
   version: '1.1',
@@ -102,16 +113,15 @@ const ModalWrapper = styled.div`
   pointer-events: none;
   z-index: -1;
 
-  ${({ isOpen }) => {
-    if (isOpen) {
-      return css`
-        opacity: 1;
-        pointer-events: all;
-        z-index: 9999;
-      `;
-    }
-  }}
+  ${({ isOpen }) => (
+    (isOpen)
+      ? css`
+          opacity: 1;
+          pointer-events: all;
+          z-index: 9999;
+        ` : null)}
 `;
+
 const LockScroll = createGlobalStyle`
   body {
     overflow: hidden;

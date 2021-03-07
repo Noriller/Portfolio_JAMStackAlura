@@ -1,5 +1,4 @@
 import React from 'react';
-import Link from 'next/link';
 import {
   Capa,
   Header,
@@ -14,7 +13,6 @@ import {
   Footer,
   FooterIcon,
 } from '../src/components';
-
 
 export default function Home() {
   return (

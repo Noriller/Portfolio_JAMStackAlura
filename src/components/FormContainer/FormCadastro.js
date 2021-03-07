@@ -1,17 +1,10 @@
-/* eslint-disable no-use-before-define */
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { Lottie } from '@crello/react-lottie';
+import { string } from 'prop-types';
 import successAnimation from './Animations/success.json';
 import errorAnimation from './Animations/error.json';
 import submitingAnimation from './Animations/submiting.json';
-
-export const formStates = {
-  DEFAULT: 'DEFAULT',
-  LOADING: 'LOADING',
-  DONE: 'DONE',
-  ERROR: 'ERROR',
-};
 
 export default function FormCadastro() {
   const [userInfo, setUserInfo] = useState({
@@ -43,7 +36,7 @@ export default function FormCadastro() {
         }
         throw new Error('Erro ao salvar.');
       })
-      .then((json) => {
+      .then(() => {
         setSubmissionStatus(formStates.DONE);
         setTimeout(() => {
           setUserInfo({
@@ -53,12 +46,10 @@ export default function FormCadastro() {
           setIsFormSubmited(false);
           setSubmissionStatus(formStates.DEFAULT);
         }, 5000);
-        console.log(json);
       })
-      .catch((error) => {
+      .catch(() => {
         setSubmissionStatus(formStates.ERROR);
         setIsFormSubmited(false);
-        console.error(error);
       });
   }
 
@@ -71,17 +62,8 @@ export default function FormCadastro() {
   }
 
   useEffect(() => {
-    setIsFormInvalid(checkFormIsInvalid);
+    setIsFormInvalid(checkFormIsInvalid(userInfo));
   }, [userInfo]);
-
-  function checkFormIsInvalid() {
-    const { name, email, message } = userInfo;
-    const emailRegex = /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i;
-    if (name.length === 0 || email.length === 0 || message.length === 0) return 'Fill all the fields.';
-    if (!emailRegex.test(email)) return 'Invalid email address.';
-
-    return false;
-  }
 
   return (
     <Form>
@@ -126,6 +108,14 @@ export default function FormCadastro() {
   );
 }
 
+function checkFormIsInvalid({ name, email, message }) {
+  const emailRegex = /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i;
+  if (name.length === 0 || email.length === 0 || message.length === 0) return 'Fill all the fields.';
+  if (!emailRegex.test(email)) return 'Invalid email address.';
+
+  return false;
+}
+
 function AnimationLottie({ state }) {
   const [animation, setAnimation] = useState({
     animation: null,
@@ -148,13 +138,23 @@ function AnimationLottie({ state }) {
   );
 }
 
+AnimationLottie.propTypes = {
+  state: string.isRequired,
+};
+
+export const formStates = {
+  DEFAULT: 'DEFAULT',
+  LOADING: 'LOADING',
+  DONE: 'DONE',
+  ERROR: 'ERROR',
+};
+
 const LottieContainer = styled.div`
   height: 150px;
   width: 150px;
   align-self: center;
   margin-top: 2em;
 `;
-
 
 const Form = styled.form`
   display: flex;
