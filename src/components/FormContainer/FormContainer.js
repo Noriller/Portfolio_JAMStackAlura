@@ -1,4 +1,3 @@
-/* eslint-disable no-use-before-define */
 import React, { useState } from 'react';
 import FloaterButton from '../FloatButton/FloatButton';
 import FormCadastro from './FormCadastro';
