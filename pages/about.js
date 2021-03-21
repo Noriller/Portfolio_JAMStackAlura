@@ -34,6 +34,7 @@ export default function About({ projects }) {
 }
 
 About.propTypes = {
+  // eslint-disable-next-line react/forbid-prop-types
   projects: array.isRequired,
 };
 

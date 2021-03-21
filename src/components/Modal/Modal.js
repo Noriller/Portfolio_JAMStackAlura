@@ -1,5 +1,7 @@
 import { motion } from 'framer-motion';
-import { bool, func, node, oneOfType } from 'prop-types';
+import {
+  bool, func, node, oneOfType,
+} from 'prop-types';
 import React, { useEffect } from 'react';
 import styled, { createGlobalStyle, css } from 'styled-components';
 
