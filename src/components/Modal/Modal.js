@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { func, node } from 'prop-types';
+import { bool, func, node, oneOfType } from 'prop-types';
 import React, { useEffect } from 'react';
 import styled, { createGlobalStyle, css } from 'styled-components';
 
@@ -40,7 +40,7 @@ export default function Modal({ isOpen, onClose, children }) {
 }
 
 Modal.propTypes = {
-  isOpen: func.isRequired,
+  isOpen: oneOfType([bool, func]).isRequired,
   onClose: func.isRequired,
   children: node.isRequired,
 };
@@ -65,7 +65,7 @@ function SafeArea({ children, isOpen }) {
 
 SafeArea.propTypes = {
   children: node.isRequired,
-  isOpen: func.isRequired,
+  isOpen: oneOfType([bool, func]).isRequired,
 };
 
 const Icon = styled.svg.attrs({

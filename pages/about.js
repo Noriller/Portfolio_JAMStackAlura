@@ -19,7 +19,7 @@ export default function About({ projects }) {
       <div>
         <div>----------My Repos------------------</div>
         {projects.map((project) => (
-          <div>
+          <div key={project.url}>
             <div>{project.name}</div>
             <div>{project.html_url}</div>
             <div>{project.description || ''}</div>
