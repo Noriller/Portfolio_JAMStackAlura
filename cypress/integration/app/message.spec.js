@@ -48,6 +48,7 @@ describe('Send a message', () => {
     it('should have an API response that mirrors the submit values', () => {
       cy.intercept('https://contact-form-api-jamstack.herokuapp.com/message').as('messageSent');
       sendMessage.getSubmitFormButton().click();
+
       cy.wait('@messageSent').then((interceptor) => {
         expect(JSON.stringify(interceptor.response.body))
           .equal(JSON.stringify(sendMessage.defaultTestValues));
