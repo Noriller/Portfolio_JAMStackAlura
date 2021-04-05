@@ -24,7 +24,7 @@ export default function FloaterButton({ show = false, clickHandle }) {
 
   return (
     show ? (
-      <Floater style={{ top: toTop }} onClick={clickHandle}>
+      <Floater style={{ top: toTop }} onClick={clickHandle} id="floatButtonMessage">
         <FooterIcon variant="mail" />
       </Floater>
     ) : null

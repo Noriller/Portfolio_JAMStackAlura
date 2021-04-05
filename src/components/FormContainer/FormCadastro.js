@@ -66,7 +66,7 @@ export default function FormCadastro() {
   }, [userInfo]);
 
   return (
-    <Form>
+    <Form id="formCadastro">
       <Container>
         <h1>Leave a message!</h1>
         <InputContainer>
